@@ -1,0 +1,502 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Anisha Tiwary</title>
+<meta name="description" content="Anisha Tiwary: AI, data and full-stack builder. 30+ shipped projects across AI, machine learning, analytics, finance, product operations and web.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one 1120px column; a signal-trace hero, a filterable lab bench of projects, quiet credential sections below. */
+:root{
+  --bg:#F2F4F8;
+  --surface:#FFFFFF;
+  --fg:#141A2E;
+  --muted:#5A6380;
+  --line:#D9DEEA;
+  --accent:#2C47D4;
+  --accent-soft:#E3E8FB;
+  --metric:#B4610F;
+  --display:"Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --body:"Instrument Sans", "Segoe UI", system-ui, sans-serif;
+  --mono:"JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --radius:10px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0D1120; --surface:#151B2F; --fg:#E7EAF4; --muted:#9AA3C0; --line:#28304A;
+    --accent:#8FA3FF; --accent-soft:#1E2850; --metric:#F2A65A; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0D1120; --surface:#151B2F; --fg:#E7EAF4; --muted:#9AA3C0; --line:#28304A;
+  --accent:#8FA3FF; --accent-soft:#1E2850; --metric:#F2A65A; color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline;text-underline-offset:3px}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1120px;margin:0 auto;padding-inline:20px}
+
+/* nav */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:12px}
+.mark{font-family:var(--display);font-weight:800;font-size:20px;color:var(--fg);letter-spacing:-.02em}
+.mark span{color:var(--accent)}
+.nav ul{list-style:none;display:flex;gap:22px;margin:0;padding:0;font-size:14px;font-weight:500}
+.nav ul a{color:var(--muted)}
+.nav ul a:hover{color:var(--fg);text-decoration:none}
+@media (max-width:760px){.nav ul{display:none}}
+.btn{display:inline-flex;align-items:center;gap:8px;font:600 14px/1 var(--body);padding:11px 18px;border-radius:999px;border:1px solid var(--accent);background:var(--accent);color:var(--bg);cursor:pointer}
+.btn:hover{text-decoration:none;filter:brightness(1.08)}
+.btn.ghost{background:transparent;color:var(--accent)}
+
+/* hero */
+.hero{padding-block:72px 40px}
+.status{display:inline-flex;align-items:center;gap:8px;font:500 13px var(--mono);color:var(--muted);letter-spacing:.02em}
+.status i{width:8px;height:8px;border-radius:50%;background:#2DA36A;box-shadow:0 0 0 4px color-mix(in srgb,#2DA36A 22%,transparent)}
+h1{font-family:var(--display);font-weight:800;font-size:clamp(46px,8vw,96px);line-height:.95;letter-spacing:-.035em;margin:18px 0 18px;text-wrap:balance}
+.lede{font-size:clamp(18px,2.2vw,22px);max-width:40ch;color:var(--muted);margin:0 0 28px;text-wrap:balance}
+.lede b{color:var(--fg);font-weight:600}
+.cta{display:flex;gap:12px;flex-wrap:wrap}
+.trace{display:block;width:100%;height:90px;margin-top:48px}
+.readout{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.readout div{padding:18px 16px;border-left:1px solid var(--line)}
+.readout div:first-child{border-left:0;padding-left:0}
+.readout b{display:block;font:700 30px/1.1 var(--display);letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.readout span{font:500 12px var(--mono);color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+@media (max-width:700px){.readout{grid-template-columns:repeat(2,1fr)}.readout div:nth-child(3){border-left:0;padding-left:0}.readout div:nth-child(n+3){border-top:1px solid var(--line)}}
+
+/* sections */
+section{padding-block:72px 8px}
+.eyebrow{font:500 12px var(--mono);color:var(--accent);text-transform:uppercase;letter-spacing:.12em;margin:0 0 10px}
+h2{font-family:var(--display);font-weight:700;font-size:clamp(30px,4.4vw,46px);line-height:1.05;letter-spacing:-.025em;margin:0 0 14px;text-wrap:balance}
+.sub{color:var(--muted);max-width:62ch;margin:0 0 32px}
+
+/* about */
+.about{display:grid;grid-template-columns:1.3fr 1fr;gap:48px;align-items:start}
+.about p{margin:0 0 16px;max-width:62ch}
+.about aside{border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);padding:22px}
+.about aside h3{font:600 13px var(--mono);text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin:0 0 12px}
+.about aside ul{margin:0;padding:0;list-style:none;display:grid;gap:10px;font-size:15px}
+.about aside li{display:flex;justify-content:space-between;gap:12px;border-bottom:1px dashed var(--line);padding-bottom:10px}
+.about aside li:last-child{border:0;padding:0}
+.about aside li span:last-child{color:var(--muted);text-align:right}
+@media (max-width:820px){.about{grid-template-columns:1fr;gap:28px}}
+
+/* featured case studies */
+.cases{display:grid;gap:0;border-top:1px solid var(--line)}
+.case{display:grid;grid-template-columns:180px 1fr 220px;gap:28px;padding-block:28px;border-bottom:1px solid var(--line)}
+.case .tag{font:500 12px var(--mono);color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+.case h3{font:700 24px/1.15 var(--display);letter-spacing:-.015em;margin:0 0 8px}
+.case p{margin:0 0 10px;max-width:60ch}
+.case dl{margin:0;display:grid;gap:10px;align-content:start}
+.case dt{font:500 11px var(--mono);color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
+.case dd{margin:0;font:600 20px/1.2 var(--display);color:var(--metric);font-variant-numeric:tabular-nums}
+.links{display:flex;flex-wrap:wrap;gap:14px;font:500 13px var(--mono)}
+@media (max-width:860px){.case{grid-template-columns:1fr;gap:12px}}
+
+/* project bench */
+.tools{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:24px}
+.chip{font:500 13px var(--body);padding:8px 14px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--fg);cursor:pointer}
+.chip small{font:500 11px var(--mono);color:var(--muted);margin-left:6px}
+.chip[aria-pressed="true"]{background:var(--fg);border-color:var(--fg);color:var(--bg)}
+.chip[aria-pressed="true"] small{color:var(--bg);opacity:.7}
+.search{flex:1 1 220px;min-width:0;max-width:320px;margin-left:auto;font:400 14px var(--body);padding:9px 14px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--fg)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,320px),1fr));gap:16px}
+.card{display:flex;flex-direction:column;gap:10px;min-width:0;padding:20px;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);transition:border-color .2s}
+.card:hover{border-color:var(--accent)}
+.card .doms{font:500 11px var(--mono);color:var(--accent);text-transform:uppercase;letter-spacing:.08em}
+.card h3{font:700 19px/1.2 var(--display);letter-spacing:-.01em;margin:0}
+.card .m{font:500 13px/1.45 var(--mono);color:var(--metric)}
+.card p{margin:0;font-size:15px;color:var(--muted)}
+.stack{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto;padding-top:6px}
+.stack span{font:500 11.5px var(--mono);padding:3px 8px;border-radius:5px;background:var(--accent-soft);color:var(--fg)}
+.card .links{padding-top:4px;border-top:1px solid var(--line);padding-top:12px}
+.empty{color:var(--muted);padding:24px 0}
+.count{font:500 13px var(--mono);color:var(--muted);margin:-8px 0 18px}
+
+/* skills */
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:28px 36px}
+.skills h3{font:600 13px var(--mono);text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin:0 0 10px;padding-bottom:8px;border-bottom:1px solid var(--line)}
+.skills p{margin:0;font-size:15px;line-height:1.75}
+
+/* timeline-ish credentials */
+.creds{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+@media (max-width:820px){.creds{grid-template-columns:1fr}}
+.entry{padding-block:16px;border-bottom:1px solid var(--line)}
+.entry:first-of-type{border-top:1px solid var(--line)}
+.entry .top{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.entry h3{font:700 18px/1.3 var(--display);margin:0}
+.entry .when{font:500 13px var(--mono);color:var(--muted);font-variant-numeric:tabular-nums}
+.entry p{margin:4px 0 0;color:var(--muted);font-size:15px}
+.certs{list-style:none;margin:0;padding:0;columns:2 260px;column-gap:36px}
+.certs li{break-inside:avoid;padding:8px 0;border-bottom:1px solid var(--line);font-size:15px}
+.certs li b{font-weight:600}
+.certs li span{color:var(--muted)}
+
+/* contact */
+.contact{padding-block:88px 40px}
+.contact h2{font-size:clamp(36px,6vw,64px)}
+.contact-row{display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin-top:24px}
+.email{font:500 clamp(16px,2.4vw,22px) var(--mono);color:var(--fg);user-select:all;overflow-wrap:anywhere}
+footer{border-top:1px solid var(--line);padding-block:24px;margin-top:48px;font:500 13px var(--mono);color:var(--muted);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+</style>
+</head>
+<body>
+
+<nav class="nav" aria-label="Main">
+  <div class="wrap">
+    <a class="mark" href="#top">AT<span>.</span></a>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#case-studies">Case Studies</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#background">Background</a></li>
+    </ul>
+    <a class="btn" href="#contact">Get in touch</a>
+  </div>
+</nav>
+
+<main id="top">
+  <header class="hero wrap">
+    <span class="status"><i></i>Open to roles · Bengaluru · Available immediately</span>
+    <h1>Anisha Tiwary</h1>
+    <p class="lede">I build <b>AI systems, data pipelines and full-stack products</b> that answer one question well, and I test them until I can show the numbers.</p>
+    <div class="cta">
+      <a class="btn" href="#projects">See all projects</a>
+      <a class="btn ghost" href="https://github.com/Anisha-Tiwaryy" target="_blank" rel="noopener">GitHub ↗</a>
+      <a class="btn ghost" href="https://www.linkedin.com/in/anisha-tiwary-94b89030a" target="_blank" rel="noopener">LinkedIn ↗</a>
+    </div>
+    <canvas class="trace" id="trace" aria-hidden="true"></canvas>
+    <div class="readout">
+      <div><b id="stat-projects">31</b><span>Projects built</span></div>
+      <div><b>6</b><span>Domains</span></div>
+      <div><b>24,000+</b><span>Judgments in one RAG index</span></div>
+      <div><b>2</b><span>Oracle OCI pro certs</span></div>
+    </div>
+  </header>
+
+  <section id="about" class="wrap">
+    <p class="eyebrow">About</p>
+    <div class="about">
+      <div>
+        <h2>An Electronics and Computer Science engineer who builds with data.</h2>
+        <p>I studied Electronics and Computer Science Engineering (ECS) at KIIT University, which taught me to think in signals, noise and systems. I still work that way. Whether it is a legal search engine, a credit risk model or a support-ticket triage bot, I start by asking what signal matters and how I will know if the system got it wrong.</p>
+        <p>My projects span AI and LLM apps, machine learning, analytics, finance and risk, product operations and full-stack web. Most of them come with a test suite, a written list of known limitations, and a failure analysis, because a model that looks good on a demo is only half the job.</p>
+        <p>I am looking for roles in AI engineering, data and analytics, product, or software development where I can ship real things and keep learning fast.</p>
+      </div>
+      <aside>
+        <h3>At a glance</h3>
+        <ul>
+          <li><span>Degree</span><span>B.Tech, Electronics and Computer Science Engineering, KIIT, 2026</span></li>
+          <li><span>Based in</span><span>Bengaluru, Karnataka</span></li>
+          <li><span>Joining</span><span>Immediately</span></li>
+          <li><span>Strongest in</span><span>Python, SQL, RAG, ML</span></li>
+          <li><span>Also ships</span><span>React, Node, Django</span></li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <section id="case-studies" class="wrap">
+    <p class="eyebrow">Case studies</p>
+    <h2>Four problems, worked end to end.</h2>
+    <p class="sub">Each one started from a real business question, was built as a working prototype, and was judged against a baseline instead of a vibe.</p>
+    <div class="cases" id="cases"></div>
+  </section>
+
+  <section id="projects" class="wrap">
+    <p class="eyebrow">Projects</p>
+    <h2>Everything I have built, across every domain.</h2>
+    <p class="sub">Filter by domain or search by tool. Try "FAISS", "Streamlit" or "React".</p>
+    <div class="tools" role="toolbar" aria-label="Filter projects">
+      <div id="chips" style="display:contents"></div>
+      <input class="search" id="q" type="search" placeholder="Search by name or tool" aria-label="Search projects">
+    </div>
+    <p class="count" id="count" aria-live="polite"></p>
+    <div class="grid" id="grid"></div>
+  </section>
+
+  <section id="skills" class="wrap">
+    <p class="eyebrow">Skills</p>
+    <h2>The toolkit behind the projects.</h2>
+    <p class="sub">Everything listed here is used in at least one project above.</p>
+    <div class="skills">
+      <div><h3>Languages</h3><p>Python · SQL · JavaScript (ES6+) · TypeScript · C++ · C#</p></div>
+      <div><h3>AI & LLMs</h3><p>RAG pipelines · FAISS · Sentence Transformers · Gemini API · Prompt engineering · Transformers (PyTorch) · n8n workflows</p></div>
+      <div><h3>Machine learning</h3><p>Scikit-learn · XGBoost · SHAP · LSTM · YOLOv8 · OpenCV · TF-IDF classifiers · Isolation Forest · Prophet / ARIMA · GARCH</p></div>
+      <div><h3>Data & analytics</h3><p>Pandas · NumPy · SciPy · SQLite / PostgreSQL · Power BI · Excel (COUNTIFS, INDEX/MATCH) · Google Sheets · Matplotlib · Seaborn · ETL design</p></div>
+      <div><h3>Web & backend</h3><p>React · Vite · Tailwind · Webpack · Node.js · Express · FastAPI · Django + DRF · Celery + Redis · Prisma · MongoDB · Firebase · Socket.io</p></div>
+      <div><h3>Ship & test</h3><p>pytest · Jest + RTL · GitHub Actions CI · Streamlit Cloud · Vercel · Render · GitHub Pages · Cursor</p></div>
+    </div>
+  </section>
+
+  <section id="background" class="wrap">
+    <p class="eyebrow">Background</p>
+    <h2>Education, training and credentials.</h2>
+    <div class="creds">
+      <div>
+        <div class="entry">
+          <div class="top"><h3>B.Tech, Electronics and Computer Science Engineering (ECS)</h3><span class="when">2022 to 2026</span></div>
+          <p>KIIT University, Bhubaneswar</p>
+        </div>
+        <div class="entry">
+          <div class="top"><h3>Vocational Trainee, Team Lead</h3><span class="when">May 2025</span></div>
+          <p>SAIL Durgapur Steel Plant · 11 days across six departments (C&amp;IT, RMHP, Sinter Plant, Coke Ovens, Blast Furnace, W&amp;A Plant). Studied Oracle ERP and SQL-based inventory workflows; led the training batch and kept its daily records and departmental documentation.</p>
+        </div>
+        <div class="entry">
+          <div class="top"><h3>Class XII, CBSE</h3><span class="when">2022</span></div>
+          <p>Zoom International School</p>
+        </div>
+        <div class="entry">
+          <div class="top"><h3>Class X, CBSE</h3><span class="when">2020</span></div>
+          <p>Delhi Public School</p>
+        </div>
+        <div class="entry">
+          <div class="top"><h3>Beyond the screen</h3></div>
+          <p>Member of National Service Scheme (SOEE) Society, KIIT University (riverbank cleaning drives, community volunteering) · Participant, L'Oreal Sustainability Challenge 2025 · SOF Gold Medallist, International English Olympiad</p>
+        </div>
+      </div>
+      <div>
+        <ul class="certs">
+          <li><b>OCI Data Science Professional</b><br><span>Oracle</span></li>
+          <li><b>OCI Generative AI Professional</b><br><span>Oracle</span></li>
+          <li><b>Advanced SQL for Data Analysis</b><br><span>Great Learning</span></li>
+          <li><b>Master Data Engineering</b><br><span>Udemy</span></li>
+          <li><b>Data Science, AI and ML using Python</b><br><span>Academy of Skill Development</span></li>
+          <li><b>Introduction to Cloud Computing on AWS</b><br><span>Udemy</span></li>
+          <li><b>The Complete Web Development Bootcamp</b><br><span>Udemy</span></li>
+          <li><b>Responsive Web Design</b><br><span>freeCodeCamp</span></li>
+          <li><b>Dynamic Programming Camp</b><br><span>AlgoUniversity</span></li>
+          <li><b>Welcome to ServiceNow Zurich</b><br><span>NowLearning</span></li>
+          <li><b>SAP Fiori Implementation for S/4HANA</b><br><span>Udemy</span></li>
+          <li><b>Game Development with Unity (C#)</b><br><span>Certification</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="wrap contact">
+    <p class="eyebrow">Contact</p>
+    <h2>Let's build something that holds up.</h2>
+    <p class="sub">Open to full-time roles and internships in AI, data, product and software. The fastest way to reach me is email.</p>
+    <div class="contact-row">
+      <span class="email" id="email">anishadgp04@gmail.com</span>
+      <button class="btn ghost" id="copy" type="button">Copy email</button>
+      <a class="btn" href="mailto:anishadgp04@gmail.com">Write to me</a>
+    </div>
+    <div class="contact-row links">
+      <a href="https://www.linkedin.com/in/anisha-tiwary-94b89030a" target="_blank" rel="noopener">LinkedIn ↗</a>
+      <a href="https://github.com/Anisha-Tiwaryy" target="_blank" rel="noopener">GitHub ↗</a>
+    </div>
+    <footer>
+      <span>© 2026 Anisha Tiwary</span>
+      <a href="#top">Back to top ↑</a>
+    </footer>
+  </section>
+</main>
+
+<script>
+const GH = "https://github.com/Anisha-Tiwaryy/";
+const DOMAINS = {
+  ai:"AI & LLMs", ml:"Machine Learning", data:"Data Analytics",
+  fin:"Finance & Risk", web:"Full-Stack & Frontend", prod:"Product & Ops"
+};
+
+const CASES = [
+  {tag:"Fintech · Collections", title:"PromiseCheck",
+   body:"Collections voicebots log every \"I'll pay next week\" the same way, so agents chase the wrong promises. I scored promise-to-pay quality across 1,500 simulated Hinglish and English calls, sorted promises into Firm, Soft and Hollow, and kept follow-ups inside the RBI 8am to 7pm call window.",
+   metrics:[["Firm promises kept","68% vs 52% baseline"],["Bot calls saved","76% fewer"]],
+   links:[["GitHub",GH+"Promisecheck"]]},
+  {tag:"Brokerage · AI agents", title:"Mandate Gate",
+   body:"If an AI agent trades on a user's behalf, the broker needs to know what the user actually allowed. Mandate Gate parses the user's sentence, matches it to NSE equity and ETF lists, holds ambiguous orders, enforces per-order and daily limits, and writes an intent receipt for every decision.",
+   metrics:[["Passing tests","33"],["Limits enforced","Segment, per-order, daily, count"]],
+   links:[["Live demo","https://mandate-gate-anisha.streamlit.app"],["GitHub",GH+"Mandate-gate"]]},
+  {tag:"Credit risk · Banking", title:"Credit Decision Strategy",
+   body:"On 30,000 real credit card accounts, I built a default model, found a policy gap (1-month-late, high-utilization accounts defaulting at about 2x the portfolio rate), and ran a randomized champion/challenger test against the legacy rule.",
+   metrics:[["Defaulters caught","+8.1 pts (p=0.0002)"],["Missed expected loss","21% lower"]],
+   links:[["GitHub",GH+"Credit-decision-strategy"]]},
+  {tag:"MedTech · Post-market", title:"DeviceWatch",
+   body:"Medical device makers have to spot a rising failure trend inside a pile of free-text complaints. I classified 1,635 cleaned complaints by failure mode and back-tested six alerting strategies out of sample, including a sales-jump decoy built to trigger false alarms.",
+   metrics:[["Planted problems caught","93.8%"],["Classifier accuracy","88.6% (time-split)"]],
+   links:[["GitHub",GH+"Devicewatch"]]}
+];
+
+const P = [
+  {t:"PromiseCheck", d:["prod","ai","fin"], m:"Firm promises kept 68% vs 52% baseline · 76% fewer bot calls",
+   s:"Scores promise-to-pay quality for collections voicebots across 1,500 simulated calls with a rules extractor and a 13-rule Gemini extraction prompt graded on a 30-case golden set.",
+   k:["Python","Gemini API","n8n","Google Sheets"], l:[["GitHub",GH+"Promisecheck"]]},
+  {t:"Mandate Gate", d:["fin","prod"], m:"33 passing tests · CI on every push",
+   s:"Broker-side rulebook for AI trading agents: parses the user's instruction, resolves symbols, holds ambiguous orders and writes an intent receipt.",
+   k:["Python","pandas","Streamlit","pytest","GitHub Actions"], l:[["Live",'https://mandate-gate-anisha.streamlit.app'],["GitHub",GH+"Mandate-gate"]]},
+  {t:"TradeDesk Copilot", d:["ai","prod"], m:"92 to 94% triage accuracy · 3 of 3 systemic issues recovered",
+   s:"Support automation for a trading platform: ticket triage with confidence-gated replies, RAG Q&A over a 15-doc knowledge base, and a backlog generator that clusters repeat issues.",
+   k:["Python","Scikit-learn","FAISS","Streamlit","pytest"], l:[["Live","https://tradedesk-copilot-anisha.streamlit.app"],["GitHub",GH+"TradeDesk-Copilot"]]},
+  {t:"Nyaya", d:["ai","web"], m:"24,000+ Supreme Court judgments (1995 to 2025) indexed",
+   s:"Legal research assistant that retrieves and grounds answers in Indian Supreme Court judgments through a RAG pipeline.",
+   k:["FastAPI","PostgreSQL","Supabase","FAISS","RAG","Vercel"], l:[["Live","https://nyaya-site.vercel.app"],["Frontend",GH+"Nyaya-Site"],["Backend",GH+"Nyaya-backend"]]},
+  {t:"MathMentor AI", d:["ai"], m:"Conversational tutor with semantic retrieval",
+   s:"Math doubt solver that retrieves relevant worked material with a FAISS RAG pipeline before answering with Gemini.",
+   k:["FAISS","Sentence Transformers","Gemini API","Streamlit"], l:[["GitHub",GH+"Math-mentor-AI--An-AI-Powered-Math-Doubt-Solver"]]},
+  {t:"SEC Risk Signal Drift Analyzer", d:["ai","fin"], m:"18 documented test cases · deployed",
+   s:"Detects year-over-year semantic drift in 10-K risk disclosures by embedding filings from SEC EDGAR and comparing them with cosine similarity.",
+   k:["Python","Sentence Transformers","FAISS","Gemini API","SEC EDGAR API","Streamlit"], l:[["Live","https://sec-risk-drift-gysyvkrtskzd82ohvhf82q.streamlit.app"],["GitHub",GH+"Sec-risk-drift"]]},
+  {t:"ShopSense AI", d:["ai","prod"], m:"84.5% intent accuracy · silent misroutes cut 17.9% to 2.5%",
+   s:"D2C support and re-engagement agent with guardrailed auto-replies, a tone-detection fix found through failure analysis, and an auto-generated support playbook.",
+   k:["Python","Scikit-learn","Pandas","Streamlit"], l:[["GitHub",GH+"ShopSense-AI"]]},
+  {t:"Credit Decision Strategy & Risk Monitoring System", d:["fin","data","ml"], m:"+8.1 pts defaulters caught (p=0.0002) · PD model AUC 0.745",
+   s:"Risk tiers, policy-gap discovery and a randomized champion/challenger test on 30,000 real credit card accounts, with drift monitoring (PSI 0.0011).",
+   k:["Python","Scikit-learn","SciPy","SQL","Jinja2","Streamlit","pytest"], l:[["GitHub",GH+"Credit-decision-strategy"]]},
+  {t:"DeviceWatch", d:["ml","data"], m:"93.8% planted problems caught · 88.6% classifier accuracy",
+   s:"Post-market complaint analysis for medical devices: failure-mode classification, a confidence gate, and six alerting strategies back-tested out of sample.",
+   k:["Python","Scikit-learn","SciPy","Pandas","pytest"], l:[["GitHub",GH+"Devicewatch"]]},
+  {t:"ThreatLens", d:["web"], m:"29 tests · 88.5% coverage · ~53 KiB gzipped",
+   s:"Threat alert triage dashboard with hand-configured Webpack, command-pattern undo/redo and from-scratch debounce, throttle and retry utilities.",
+   k:["React 18","JavaScript","Webpack 5","Sass","Jest","GitHub Actions"], l:[["Live","https://anisha-tiwaryy.github.io/threatlens/"],["GitHub",GH+"threatlens"]]},
+  {t:"Mini ERP + CRM Operations Portal", d:["web"], m:"4 roles with JWT auth · stock movement log",
+   s:"Operations portal for a wholesale distributor: customer CRM, inventory with stock movement history, and sales challans that deduct stock.",
+   k:["Node.js","TypeScript","Express","Prisma","PostgreSQL","React","Tailwind"], l:[["Live","https://erp-crm-portal-anisha-tiwary-s-projects.vercel.app"],["GitHub",GH+"Erp-Crm-Portal"]]},
+  {t:"HackMate", d:["web"], m:"15+ documented test cases",
+   s:"Hackathon teammate finder with real-time chat, Firebase authentication and CI.",
+   k:["React","TypeScript","Tailwind","Firebase","Socket.io","Node.js","MongoDB"], l:[["GitHub",GH+"Hackmate"]]},
+  {t:"ShelfSignal", d:["web","data"], m:"6 of 6 planted shrinkflation cases found · 0 false positives",
+   s:"Mines 78,028 shelf-audit observations for shrinkflation, launch velocity and hidden per-gram inflation, with background detector runs.",
+   k:["Django","DRF","PostgreSQL","Celery","Redis","React","TypeScript"], l:[]},
+  {t:"ScanOps", d:["prod","data"], m:"93% catch rate on corrupted totals · 5.6% false holds",
+   s:"Receipt scan quality and rewards operations dashboard: OCR triage, points ledger, voucher stock alerts and a prioritized ticket queue.",
+   k:["Python","Tesseract OCR","Pandas","Streamlit"], l:[]},
+  {t:"SentrySim", d:["prod","ai"], m:"+8.8 pts F2 on weapon detection · 14 tests",
+   s:"Simulates a 7,000-event AI security camera pilot, tunes confidence thresholds per detection type and turns errors into a prioritized feedback backlog.",
+   k:["Python","Pandas","NumPy","Streamlit","Matplotlib"], l:[]},
+  {t:"Sarvam Developer Pulse", d:["prod","data"], m:"Flagged a 46% drop in laptop installs (p=2e-08)",
+   s:"Weekly monitor over real PyPI, npm and Hugging Face stats that splits laptop from server installs and flags step changes.",
+   k:["Python","pandas","SciPy"], l:[]},
+  {t:"Customer Churn Intelligence Dashboard", d:["data","ml"], m:"83.7% accuracy · 0.869 ROC-AUC · 7,043 customers",
+   s:"Explains who churns and why using SHAP; contract type turned out to be the strongest predictor.",
+   k:["Python","XGBoost","SHAP","SMOTE","Power BI","Streamlit"], l:[["GitHub",GH+"Customer-retention-intelligence"]]},
+  {t:"Hiring Funnel Intelligence & Candidate Scoring System", d:["data"], m:"41% pre-interview loss traced to 3 drop-off points",
+   s:"Five-stage funnel analysis over 12,500 candidate records with a seven-attribute scoring model that shortlists the top 15% per role.",
+   k:["Python","SQL","Power BI","Streamlit","Excel"], l:[["GitHub",GH+"Hiring-Funnel-Intelligence-v2"]]},
+  {t:"Multi-Source Data Pipeline & Automated Business Reporting", d:["data"], m:"3 source formats · 8 charts · automated HTML reports",
+   s:"ETL from CSV, JSON and SQLite into a SQL KPI layer, with scheduled reports and a filterable dashboard.",
+   k:["Python","Pandas","SQLite","Jinja2","Streamlit","GitHub Actions"], l:[["Live","https://multi-source-data-pipeline-niawtzyqodrsanqvq8o4b7.streamlit.app"],["GitHub",GH+"Multi-source-data-pipeline"]]},
+  {t:"Banking Campaign Analytics", d:["data","fin"], m:"45,211 UCI Bank Marketing records",
+   s:"Finds which customer segments and contact patterns convert in a bank's term-deposit campaigns.",
+   k:["Python","SQL","Scikit-learn","Power BI","Jinja2"], l:[["GitHub",GH+"Banking-Campaign-Analytics"]]},
+  {t:"IT Infrastructure Service & Asset Analytics", d:["data"], m:"40 of 40 planted outages caught · 27 tests",
+   s:"About 60,000 asset, ticket and uptime records cleaned through 13 data quality rules, with SLA KPIs and an Excel scorecard of 13,753 live formulas.",
+   k:["Python","SQL","Scikit-learn","openpyxl","Streamlit","GitHub Actions"], l:[["GitHub",GH+"IT-infra-service-analytics"]]},
+  {t:"Fixed Income Reference Data Quality Monitor", d:["data","fin"], m:"56 of 56 planted defects · 0 false positives",
+   s:"Checks a 300-bond universe from three sources with 11 SQL rules, from ISIN check digits to split ratings, and traced two recurring root causes.",
+   k:["Python","SQL","openpyxl","pytest","GitHub Actions"], l:[]},
+  {t:"Financial Transaction Anomaly Detection Dashboard", d:["data","fin"], m:"Three detectors compared side by side",
+   s:"Flags unusual transactions with Z-score, IQR and Isolation Forest and shows where the methods agree.",
+   k:["Python","Isolation Forest","Streamlit"], l:[]},
+  {t:"VolCast", d:["fin","ml"], m:"Max drawdown 54.5% to 22.8% · Sharpe 0.27 to 0.33",
+   s:"Walk-forward EWMA and GARCH volatility forecasts over 2,765 out-of-sample days feeding a 10% vol-targeted risk-parity portfolio.",
+   k:["Python","arch","Pandas","SciPy","pytest"], l:[]},
+  {t:"AeroSense", d:["ml"], m:"RMSE 18.4 · MAE 13.2 cycles",
+   s:"Predicts remaining useful life of jet engines from 21 sensors in NASA C-MAPSS, a simplified health and usage monitoring prototype.",
+   k:["Python","LSTM","PCA","Scikit-learn","Streamlit"], l:[]},
+  {t:"YOLOv8 Attendance System", d:["ml"], m:"95%+ recognition across 100+ students",
+   s:"Face-based attendance with live enrollment, tested across occlusion, lighting and pose scenarios.",
+   k:["Python","YOLOv8","PyTorch","OpenCV","FAISS","SQLite"], l:[]},
+  {t:"Avian Population Estimation using PAM", d:["ml"], m:"Nested leave-one-aviary-out validation",
+   s:"Counts birds from passive acoustic recordings (BioDCASE 2026) using unsupervised signal features and a log-linear abundance model.",
+   k:["Python","librosa","SciPy","Scikit-learn"], l:[["GitHub",GH+"Avian-population-estimation-Pam"]]},
+  {t:"Multiple Disease Prediction System", d:["ml"], m:"5-model majority-vote ensemble",
+   s:"Predicts heart disease, diabetes and Parkinson's from UCI and PIMA datasets.",
+   k:["Python","Scikit-learn","Random Forest","SVM"], l:[]},
+  {t:"Healthcare Resource Demand Forecasting", d:["data","ml"], m:"12% MAPE",
+   s:"Forecasts hospital resource demand with Prophet and ARIMA.",
+   k:["Python","Prophet","ARIMA"], l:[]},
+  {t:"FlashLearn AI", d:["ai"], m:"Spaced repetition from any PDF",
+   s:"Turns uploaded PDFs into flashcards with Gemini and schedules reviews by spaced repetition.",
+   k:["Gemini API","PyPDF2","Streamlit","Resend"], l:[]},
+  {t:"Sentiment Analysis with Generative AI", d:["ai","ml"], m:"Evaluated on precision, recall and F1",
+   s:"Chatbot that classifies sentiment with transformers and extracts themes with few-shot prompting.",
+   k:["Python","PyTorch","Transformers","GPT"], l:[]}
+];
+
+const el = (h)=>{const t=document.createElement("template");t.innerHTML=h.trim();return t.content.firstChild};
+const esc = (s)=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const linkHtml = (l)=>l.map(([n,u])=>`<a href="${u}" target="_blank" rel="noopener">${esc(n)} ↗</a>`).join("");
+
+document.getElementById("cases").append(...CASES.map(c=>el(`
+  <article class="case">
+    <div class="tag">${esc(c.tag)}</div>
+    <div><h3>${esc(c.title)}</h3><p>${esc(c.body)}</p><div class="links">${linkHtml(c.links)}</div></div>
+    <dl>${c.metrics.map(([a,b])=>`<div><dt>${esc(a)}</dt><dd>${esc(b)}</dd></div>`).join("")}</dl>
+  </article>`)));
+
+document.getElementById("stat-projects").textContent = P.length;
+
+let active = "all", query = "";
+const chips = document.getElementById("chips");
+const keys = ["all",...Object.keys(DOMAINS)];
+keys.forEach(k=>{
+  const n = k==="all"?P.length:P.filter(p=>p.d.includes(k)).length;
+  const b = el(`<button class="chip" type="button" id="chip-${k}" aria-pressed="${k==="all"}">${k==="all"?"All":DOMAINS[k]}<small>${n}</small></button>`);
+  b.addEventListener("click",()=>{active=k;chips.querySelectorAll(".chip").forEach(x=>x.setAttribute("aria-pressed",x===b));render()});
+  chips.append(b);
+});
+document.getElementById("q").addEventListener("input",e=>{query=e.target.value.trim().toLowerCase();render()});
+
+function render(){
+  const list = P.filter(p=>(active==="all"||p.d.includes(active)) &&
+    (!query || (p.t+" "+p.s+" "+p.k.join(" ")).toLowerCase().includes(query)));
+  const grid = document.getElementById("grid");
+  grid.replaceChildren(...list.map(p=>el(`
+    <article class="card">
+      <div class="doms">${p.d.map(x=>DOMAINS[x]).join(" · ")}</div>
+      <h3>${esc(p.t)}</h3>
+      <div class="m">${esc(p.m)}</div>
+      <p>${esc(p.s)}</p>
+      <div class="stack">${p.k.map(x=>`<span>${esc(x)}</span>`).join("")}</div>
+      ${p.l.length?`<div class="links">${linkHtml(p.l)}</div>`:""}
+    </article>`)));
+  if(!list.length) grid.append(el(`<p class="empty">No project matches that yet. Try a broader term.</p>`));
+  document.getElementById("count").textContent = `Showing ${list.length} of ${P.length} projects`;
+}
+render();
+
+document.getElementById("copy").addEventListener("click",async e=>{
+  const b=e.currentTarget;
+  try{await navigator.clipboard.writeText("anishadgp04@gmail.com");b.textContent="Copied"}
+  catch{const r=document.createRange();r.selectNodeContents(document.getElementById("email"));const s=getSelection();s.removeAllRanges();s.addRange(r);b.textContent="Selected, press Ctrl+C"}
+  setTimeout(()=>b.textContent="Copy email",2200);
+});
+
+/* hero signal trace: a sine carrier with a little noise, drawn in the accent color */
+(()=>{
+  const c=document.getElementById("trace"),x=c.getContext("2d");
+  const still=matchMedia("(prefers-reduced-motion: reduce)").matches;
+  let w,h,t=0;
+  function size(){const r=devicePixelRatio||1;w=c.clientWidth;h=c.clientHeight;c.width=w*r;c.height=h*r;x.setTransform(r,0,0,r,0,0)}
+  function draw(){
+    const cs=getComputedStyle(document.documentElement);
+    x.clearRect(0,0,w,h);
+    x.strokeStyle=cs.getPropertyValue("--line");x.lineWidth=1;
+    for(let gx=0;gx<w;gx+=40){x.beginPath();x.moveTo(gx,0);x.lineTo(gx,h);x.stroke()}
+    x.beginPath();x.moveTo(0,h/2);x.lineTo(w,h/2);x.stroke();
+    x.strokeStyle=cs.getPropertyValue("--accent");x.lineWidth=2;x.beginPath();
+    for(let i=0;i<=w;i+=2){
+      const env=Math.sin(Math.PI*i/w);
+      const y=h/2+env*(h*.34)*(Math.sin(i*.045+t)*.7+Math.sin(i*.013-t*.6)*.3)+Math.sin(i*1.7+t*3)*1.2;
+      i?x.lineTo(i,y):x.moveTo(i,y);
+    }
+    x.stroke();
+    if(!still){t+=.025;requestAnimationFrame(draw)}
+  }
+  size();addEventListener("resize",size);draw();
+})();
+</script>
+</body>
+</html>
