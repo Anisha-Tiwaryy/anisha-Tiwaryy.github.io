@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Anisha Tiwary</title>
-<meta name="description" content="Anisha Tiwary: AI, data and full-stack builder. 30+ shipped projects across AI, machine learning, analytics, finance, product operations and web.">
+<meta name="description" content="Anisha Tiwary: AI, data and full-stack builder. 20+ shipped projects across AI, machine learning, analytics, finance, product operations and web.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
@@ -125,10 +125,12 @@ h2{font-family:var(--display);font-weight:700;font-size:clamp(30px,4.4vw,46px);l
 .wip{margin-top:28px;padding:22px;border:1px dashed var(--line);border-radius:var(--radius)}
 .wip h3{font:600 13px var(--mono);text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin:0 0 12px}
 .wip ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:18px}
-.wip li{display:flex;flex-direction:column;gap:4px;min-width:0}
-.wip b{font:700 16px/1.3 var(--display)}
-.wip span{font-size:14.5px;color:var(--muted)}
-.wip em{font:normal 500 12px var(--mono);color:var(--accent)}
+.wip li{display:flex;flex-direction:column;gap:8px;min-width:0;padding-top:14px;border-top:1px solid var(--line)}
+.wip b{font:700 17px/1.3 var(--display)}
+.wip p{margin:0;font-size:14.5px;color:var(--muted)}
+.wip .lbl{display:block;font:500 11px var(--mono);text-transform:uppercase;letter-spacing:.08em;color:var(--accent);margin-bottom:2px}
+.wip .note{margin:0 0 6px;color:var(--muted);font-size:14px}
+.wip .stack{padding-top:2px}
 /* skills */
 .skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:28px 36px}
 .skills h3{font:600 13px var(--mono);text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin:0 0 10px;padding-bottom:8px;border-bottom:1px solid var(--line)}
@@ -238,11 +240,8 @@ footer{border-top:1px solid var(--line);padding-block:24px;margin-top:48px;font:
     <div class="grid" id="grid"></div>
     <div class="wip">
       <h3>In progress</h3>
-      <ul>
-        <li><b>AML Transaction Monitoring System</b><span>Detecting money-laundering patterns (fan-out, fan-in, round-trip, structuring) with an XGBoost and Isolation Forest ensemble, plus a compliance reporting dashboard.</span><em>Python · XGBoost · Isolation Forest · SMOTE · Streamlit</em></li>
-        <li><b>Amazon Sales Analysis</b><span>Exploratory analysis of revenue trends, top product categories and regional sales, with an interactive sales dashboard.</span><em>Python · Pandas · Matplotlib · Seaborn · Power BI</em></li>
-        <li><b>LangChain Autonomous Agent</b><span>An LLM agent that plans multi-step tasks and calls tools on its own to complete them.</span><em>Python · LangChain · LLM tool calling</em></li>
-      </ul>
+      <p class="note">Projects I am building or polishing now. Each one gets a GitHub link here once it is finished.</p>
+      <ul id="wip"></ul>
     </div>
   </section>
 
@@ -405,19 +404,10 @@ const P = [
    k:["MATLAB","Simulink","Automated Driving Toolbox","Sensor Fusion","Kalman Filter","MPC"], l:[["Report","lane-following-report.pdf"],["IEEE paper","lane-following-ieee-paper.pdf"],["Slides","lane-following-presentation.pdf"]]},
   {t:"ShiftMatch", d:["web"], m:"1.7x to 2.5x faster top-K ranking · 24 tests",
    s:"Worker-to-job matching and notification engine with an indexed PostgreSQL schema, a hand-written min-heap for ranking, and an async notification pipeline with retries and backoff.",
-   k:["Node.js","TypeScript","Express","PostgreSQL","Jest","GitHub Actions"], l:[]},
+   k:["Node.js","TypeScript","Express","PostgreSQL","Jest","GitHub Actions"], l:[["GitHub",GH+"Shiftmatch"]]},
   {t:"ShelfSignal", d:["web","data"], m:"6 of 6 planted shrinkflation cases found · 0 false positives",
    s:"Mines 78,028 shelf-audit observations for shrinkflation, launch velocity and hidden per-gram inflation, with background detector runs.",
-   k:["Django","DRF","PostgreSQL","Celery","Redis","React","TypeScript"], l:[]},
-  {t:"ScanOps", d:["prod","data"], m:"93% catch rate on corrupted totals · 5.6% false holds",
-   s:"Receipt scan quality and rewards operations dashboard: OCR triage, points ledger, voucher stock alerts and a prioritized ticket queue.",
-   k:["Python","Tesseract OCR","Pandas","Streamlit"], l:[]},
-  {t:"SentrySim", d:["prod","ai"], m:"+8.8 pts F2 on weapon detection · 14 tests",
-   s:"Simulates a 7,000-event AI security camera pilot, tunes confidence thresholds per detection type and turns errors into a prioritized feedback backlog.",
-   k:["Python","Pandas","NumPy","Streamlit","Matplotlib"], l:[]},
-  {t:"Sarvam Developer Pulse", d:["prod","data"], m:"Flagged a 46% drop in laptop installs (p=2e-08)",
-   s:"Weekly monitor over real PyPI, npm and Hugging Face stats that splits laptop from server installs and flags step changes.",
-   k:["Python","pandas","SciPy"], l:[]},
+   k:["Django","DRF","PostgreSQL","Celery","Redis","React","TypeScript"], l:[["GitHub",GH+"Shelfsignal"]]},
   {t:"Customer Churn Intelligence Dashboard", d:["data","ml"], m:"83.7% accuracy · 0.869 ROC-AUC · 7,043 customers",
    s:"Explains who churns and why using SHAP; contract type turned out to be the strongest predictor.",
    k:["Python","XGBoost","SHAP","SMOTE","Power BI","Streamlit"], l:[["GitHub",GH+"Customer-retention-intelligence"]]},
@@ -433,39 +423,18 @@ const P = [
   {t:"IT Infrastructure Service & Asset Analytics", d:["data"], m:"40 of 40 planted outages caught · 27 tests",
    s:"About 60,000 asset, ticket and uptime records cleaned through 13 data quality rules, with SLA KPIs and an Excel scorecard of 13,753 live formulas.",
    k:["Python","SQL","Scikit-learn","openpyxl","Streamlit","GitHub Actions"], l:[["GitHub",GH+"IT-infra-service-analytics"]]},
-  {t:"Fixed Income Reference Data Quality Monitor", d:["data","fin"], m:"56 of 56 planted defects · 0 false positives",
-   s:"Checks a 300-bond universe from three sources with 11 SQL rules, from ISIN check digits to split ratings, and traced two recurring root causes.",
-   k:["Python","SQL","openpyxl","pytest","GitHub Actions"], l:[]},
-  {t:"Financial Transaction Anomaly Detection Dashboard", d:["data","fin"], m:"Three detectors compared side by side",
-   s:"Flags unusual transactions with Z-score, IQR and Isolation Forest and shows where the methods agree.",
-   k:["Python","Isolation Forest","Streamlit"], l:[]},
-  {t:"VolCast", d:["fin","ml"], m:"Max drawdown 54.5% to 22.8% · Sharpe 0.27 to 0.33",
-   s:"Walk-forward EWMA and GARCH volatility forecasts over 2,765 out-of-sample days feeding a 10% vol-targeted risk-parity portfolio.",
-   k:["Python","arch","Pandas","SciPy","pytest"], l:[]},
-  {t:"AeroSense", d:["ml","sys"], m:"RMSE 18.4 · MAE 13.2 cycles",
-   s:"Predicts remaining useful life of jet engines from 21 sensors in NASA C-MAPSS, a simplified health and usage monitoring prototype.",
-   k:["Python","LSTM","PCA","Scikit-learn","Streamlit"], l:[]},
   {t:"Predictive Maintenance System", d:["ml","sys"], m:"Random Forest vs LSTM on RUL · LSTM MAE 28 cycles",
    s:"Predicts remaining useful life for industrial equipment from NASA C-MAPSS sensor data, ranks maintenance priority with FMEA-style alerts and logs service events, with SHAP explanations.",
    k:["Python","Random Forest","LSTM","SHAP","Streamlit"], l:[["GitHub",GH+"Predictive-maintenance-system"]]},
   {t:"YOLOv8 Attendance System", d:["ml"], m:"95%+ recognition across 100+ students",
    s:"Face-based attendance with live enrollment, tested across occlusion, lighting and pose scenarios.",
-   k:["Python","YOLOv8","PyTorch","OpenCV","FAISS","SQLite"], l:[]},
+   k:["Python","YOLOv8","PyTorch","OpenCV","FAISS","SQLite"], l:[["GitHub",GH+"YOLOv8-Attendance-System"]]},
   {t:"Avian Population Estimation using PAM", d:["ml","sys"], m:"Nested leave-one-aviary-out validation",
    s:"Counts birds from passive acoustic recordings (BioDCASE 2026) using unsupervised signal features and a log-linear abundance model.",
    k:["Python","librosa","SciPy","NumPy","Scikit-learn","DSP"], l:[["GitHub",GH+"Avian-population-estimation-Pam"]]},
-  {t:"Multiple Disease Prediction System", d:["ml"], m:"5-model majority-vote ensemble",
-   s:"Predicts heart disease, diabetes and Parkinson's from UCI and PIMA datasets.",
-   k:["Python","Scikit-learn","Random Forest","SVM"], l:[]},
-  {t:"Healthcare Resource Demand Forecasting", d:["data","ml"], m:"12% MAPE",
-   s:"Forecasts hospital resource demand with Prophet and ARIMA.",
-   k:["Python","Prophet","ARIMA"], l:[]},
   {t:"FlashLearn AI", d:["ai"], m:"Spaced repetition from any PDF",
    s:"Turns uploaded PDFs into flashcards with Gemini and schedules reviews by spaced repetition.",
-   k:["Gemini API","PyPDF2","Streamlit","Resend"], l:[]},
-  {t:"Sentiment Analysis with Generative AI", d:["ai","ml"], m:"Evaluated on precision, recall and F1",
-   s:"Chatbot that classifies sentiment with transformers and extracts themes with few-shot prompting.",
-   k:["Python","PyTorch","Transformers","GPT"], l:[]}
+   k:["Gemini API","PyPDF2","Streamlit","Resend"], l:[["GitHub",GH+"Flashlearn-ai"]]},
 ];
 
 const el = (h)=>{const t=document.createElement("template");t.innerHTML=h.trim();return t.content.firstChild};
@@ -478,6 +447,46 @@ document.getElementById("cases").append(...CASES.map(c=>el(`
     <div><h3>${esc(c.title)}</h3><p>${esc(c.body)}</p><div class="links">${linkHtml(c.links)}</div></div>
     <dl>${c.metrics.map(([a,b])=>`<div><dt>${esc(a)}</dt><dd>${esc(b)}</dd></div>`).join("")}</dl>
   </article>`)));
+
+
+const WIP = [
+  {t:"ScanOps", idea:"Rewards apps lose money when blurry or skewed receipt scans quietly produce the wrong total.",
+   doing:"An OCR pipeline that auto-approves, flags or fails each scan by confidence, with a points ledger, voucher stock alerts and a prioritized P1 to P3 ticket queue.",
+   k:["Python","Tesseract OCR","Pandas","Streamlit"]},
+  {t:"SentrySim", idea:"AI security camera pilots disappoint when every detection type runs on the same default confidence threshold.",
+   doing:"A simulated multi-site camera pilot that tunes thresholds per detection type, answers plain-English questions about the pilot, and turns misses into a prioritized feedback backlog.",
+   k:["Python","Pandas","NumPy","Streamlit","Matplotlib"]},
+  {t:"Sarvam Developer Pulse", idea:"Spot early when developers start or stop adopting an AI SDK, before it shows up in revenue.",
+   doing:"A weekly monitor over public PyPI, npm and Hugging Face stats that splits laptop from server installs, flags step changes statistically and plans follow-up experiments.",
+   k:["Python","pandas","SciPy"]},
+  {t:"Financial Transaction Anomaly Detection Dashboard", idea:"Simple rules and machine learning catch different kinds of suspicious transactions.",
+   doing:"Running Z-score, IQR and Isolation Forest side by side on the same transactions and showing where they agree, so reviewers start with the strongest flags.",
+   k:["Python","Scikit-learn","Isolation Forest","Streamlit"]},
+  {t:"AeroSense", idea:"Predict how many flight cycles a jet engine has left before it needs maintenance.",
+   doing:"A health index built from 21 NASA C-MAPSS engine sensors, an LSTM that predicts remaining useful life, and a what-if simulator for maintenance planning.",
+   k:["Python","LSTM","PCA","Scikit-learn","Streamlit"]},
+  {t:"Multiple Disease Prediction System", idea:"One screening app for heart disease, diabetes and Parkinson's instead of three separate tools.",
+   doing:"Five classifiers trained on public medical datasets, combined by majority vote so no single model decides alone.",
+   k:["Python","Scikit-learn","Random Forest","SVM"]},
+  {t:"Healthcare Resource Demand Forecasting", idea:"Hospitals need to know next month's patient load to plan staff before the rush arrives.",
+   doing:"Weekly admission forecasts per department with Prophet and ARIMA, turned into shift-level staffing recommendations and an Excel report.",
+   k:["Python","Prophet","ARIMA","Streamlit"]},
+  {t:"AML Transaction Monitoring System", idea:"Money laundering hides in patterns across many transactions, not in any single one.",
+   doing:"Detecting fan-out, fan-in, round-trip and structuring patterns with an XGBoost and Isolation Forest ensemble, plus a compliance reporting dashboard.",
+   k:["Python","XGBoost","Isolation Forest","SMOTE","Streamlit"]},
+  {t:"Amazon Sales Analysis", idea:"Find which products, regions and months actually drive revenue.",
+   doing:"Exploratory analysis of sales trends, top categories and regional performance, presented in an interactive sales dashboard.",
+   k:["Python","Pandas","Matplotlib","Seaborn","Power BI"]},
+  {t:"LangChain Autonomous Agent", idea:"Let an LLM finish multi-step tasks by deciding which tools to use on its own.",
+   doing:"An agent that breaks a request into steps, calls tools such as search and calculators, and checks its own results before answering.",
+   k:["Python","LangChain","LLM tool calling"]}
+];
+document.getElementById("wip").append(...WIP.map(w=>el(`
+  <li><b>${esc(w.t)}</b>
+    <p><span class="lbl">The idea</span>${esc(w.idea)}</p>
+    <p><span class="lbl">What I'm building</span>${esc(w.doing)}</p>
+    <div class="stack">${w.k.map(x=>`<span>${esc(x)}</span>`).join("")}</div>
+  </li>`)));
 
 document.getElementById("stat-projects").textContent = P.length;
 
